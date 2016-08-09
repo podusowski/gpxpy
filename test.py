@@ -2790,6 +2790,10 @@ class AbstractTests:
         self.assertEquals(0, gpx2.tracks[0].segments[0].points[0].longitude)
         self.assertEquals(0, gpx2.tracks[0].segments[0].points[0].elevation)
 
+    def test_fitness_extension(self):
+        gpx = self.parse('3p_hr_cad.gpx')
+        self.assertEquals('100', gpx.tracks[0].segments[0].points[0].extensions['hr'])
+
 class LxmlTests(mod_unittest.TestCase, AbstractTests):
     def get_parser_type(self):
         return 'lxml'
